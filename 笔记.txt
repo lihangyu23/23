@@ -1,0 +1,67 @@
+
+
+maven: 专家和行内人士的意思；
+
+maven：它是一个自动化的项目构建工具。
+
+        它有两个核心的部分： 1 依赖管理（管理jar包的依赖）
+                           2 项目的构建（清理 --> 编译 --> 测试 --> 打包 --> 部署）
+
+     1                传统项目               和                maven 项目的区别
+
+     项目结构：      项目经理来定                      项目的结构已经约定完成。资源必须放在相应位置上
+
+ maven 的项目结构
+
+        demol_maven  项目名称
+
+            src ：放Java的源代码
+                main ：放主程序文件
+                    java ：Java源代码
+                    resources ：放置配置文件的
+                test ：放测试文件
+                    java ：Java测试的源代码
+                    resources ：放置测试时使用的配置文件的
+            pom.xml ：工程对象模型：它是maven工程的核心配置文件：它的作用：管理工程的jar依赖
+
+ 坐标 ：1 groupID ：指示公司的名字或则公司的域名（www.lovo.com）, 一般倒序写 com.lovo
+       2 artifactID : 项目名称
+       3 version ：开始项目的版本号
+
+ packaging ：打包的方式：如果时Java 就打包为jar  如果是web应用程序，就打包成wer
+ 一个maven工程的位置就是坐标来定位的 ：     groupID + artifactID + version ：
+
+
+ maven的仓库 ：1 本地仓库
+              2 私服（国内镜像）
+              3 远程仓库（maven仓库）
+
+
+ 操作：
+ 1 配置maven的setings.xml 文件  1. 配置本地仓库的位置
+                               2. 配置阿里云镜像
+
+
+ 常用命令 ：mvn 
+               clean 清理
+               compile 编译
+		       test 测试
+		       package 打包
+		       install 安装：除了打包以外，还会把打完的包安装到本地仓库
+
+		
+ 依赖范围 ： complie默认  test（junit)   provider（servlet-api）    runtime（msq驱动包）  system（本地jar包）
+
+
+ Maven的解决方式:
+
+ A-->B-->C-->x.1
+
+ A-->D-->x.2
+
+ 由于只能引入一个包，此时maven按照最短路经选择导包
+
+ 路径长度一致，优先选择第一个，谁先写就用谁
+
+ 自定义
+
